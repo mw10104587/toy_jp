@@ -18,6 +18,25 @@
 	
 // d3.json()
 
+{% autoescape off %}
+var apple = {{apple}}
+{% endautoescape %}
+
+var svg = d3.select('#svg-wrap > svg');
+console.log(svg);
+
+svg.attr('width', 800)
+	.attr('height', 300);
+
+var g = svg.append('g')
+	.attr('class','bar-chart-group');
+
+g.append('rect')
+	.attr('width', apple.quantity/100)
+	.attr('height', 50)
+	.style('fill', '#eeeeee');
+
+
 </script>
 
 

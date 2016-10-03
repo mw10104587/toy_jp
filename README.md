@@ -5,16 +5,17 @@
 Type in the following command at the project root directory.
 
 ```
+// use virtual environment 
 $ source myprojectenv/bin/activate
 python manage.py runserver 0.0.0.0:8000
 ```
 
 
-
 # Process of building this toy project
 
 We have several biggest part of connecting different frameworks. We decide to use **Django**, **MySQL**
- and **d3.js** to build our application and show data and process to our users. Our main task is to link all of them together.
+ and **d3.js** to build our application and show data and process to our users. Our main task is to link all of them together. Nothing was particularly hard, but it took us a while to understand the structure of Django and connecting it to MySQL server. 
+
 
 0. Start the mysql database
 This part might be different for everyone.
@@ -22,7 +23,7 @@ This part might be different for everyone.
 /usr/local/Cellar/mysql/5.7.10/bin/mysql.server start
 ```
 
-1. Logging into database
+1. Logging into database(Create a root user before you log in)
 REF: http://stackoverflow.com/questions/11760177/access-denied-for-root-user-in-mysql-command-line
 user: root
 password: password
@@ -60,22 +61,20 @@ Superuser created successfully.
 
 
 7. Populate the database
-a) switch to the right database 
+A) switch to the right database 
 USE toy_jp;
 
-b) CREATE TABLE 
+B) CREATE TABLE 
 watch out for datatype
 
-c) INSERT INTO orders (company_name, quantity) VALUE ("Starbucks", 100);
+B) INSERT INTO orders (company_name, quantity) VALUE ("Starbucks", 100);
 
 
 8. Use Model as a higher level api to access mysql database.
 REF: https://docs.djangoproject.com/en/1.10/topics/db/queries/
 
 
-
-
-
+<!-- Second Part About loading html files -->
 
 
 10. How to Load an html file
