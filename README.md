@@ -11,14 +11,16 @@ python manage.py runserver 0.0.0.0:8000
 
 
 
-
-
-
 # Process of building this toy project
 
 We have several biggest part of connecting different frameworks. We decide to use **Django**, **MySQL**
  and **d3.js** to build our application and show data and process to our users. Our main task is to link all of them together.
 
+0. Start the mysql database
+This part might be different for everyone.
+```
+/usr/local/Cellar/mysql/5.7.10/bin/mysql.server start
+```
 
 1. Logging into database
 REF: http://stackoverflow.com/questions/11760177/access-denied-for-root-user-in-mysql-command-line
@@ -40,8 +42,6 @@ Query OK, 0 rows affected (0.01 sec)
 
 mysql> GRANT ALL PRIVILEGES ON toy_jp.* TO mw10104587@localhost;
 Query OK, 0 rows affected (0.01 sec)
-
-
 
 
 3. Create Virtual Environment for Python
@@ -69,8 +69,20 @@ watch out for datatype
 c) INSERT INTO orders (company_name, quantity) VALUE ("Starbucks", 100);
 
 
+8. Use Model as a higher level api to access mysql database.
+REF: https://docs.djangoproject.com/en/1.10/topics/db/queries/
 
 
+
+
+
+
+
+10. How to Load an html file
+REF: http://stackoverflow.com/questions/14400035/how-to-return-a-static-html-file-as-a-response-in-django
+
+Even more helpful link from Django Girls
+https://tutorial.djangogirls.org/en/html/
 
 
 

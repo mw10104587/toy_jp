@@ -9,6 +9,7 @@ class Order(models.Model):
     def __str__(self):              # __unicode__ on Python 2
         return self.company_name
 
+
     def json_object(self):
     	data = {'company_name': self.company_name, 'quantity': self.quantity}
     	return str(data)
