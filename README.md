@@ -11,27 +11,29 @@ python manage.py runserver 0.0.0.0:8000
 ```
 
 
-# Process of building this toy project
+## Process of building this toy project
 
 We have several biggest part of connecting different frameworks. We decide to use **Django**, **MySQL**
  and **d3.js** to build our application and show data and process to our users. Our main task is to link all of them together. Nothing was particularly hard, but it took us a while to understand the structure of Django and connecting it to MySQL server. 
 
 
-0. Start the mysql database
+
+## Database
+#### Start mysql database
 This part might be different for everyone.
 ```
 /usr/local/Cellar/mysql/5.7.10/bin/mysql.server start
 ```
 
-1. Logging into database(Create a root user before you log in)
+#### Log into database
+Create a root user before you log in
 REF: http://stackoverflow.com/questions/11760177/access-denied-for-root-user-in-mysql-command-line
+```
 user: root
 password: password
+```
 
-
-2. Creating a database for this project
-https://www.digitalocean.com/community/tutorials/how-to-use-mysql-or-mariadb-with-your-django-application-on-ubuntu-14-04
-
+#### Create a database for this project
 A) Create a database
 DATABASE NAME: toy_jp
 mysql> CREATE DATABASE toy_jp CHARACTER SET UTF8;
@@ -44,14 +46,13 @@ Query OK, 0 rows affected (0.01 sec)
 mysql> GRANT ALL PRIVILEGES ON toy_jp.* TO mw10104587@localhost;
 Query OK, 0 rows affected (0.01 sec)
 
+**REF**: https://www.digitalocean.com/community/tutorials/how-to-use-mysql-or-mariadb-with-your-django-application-on-ubuntu-14-04
 
-3. Create Virtual Environment for Python
-
-4. Install django mysql
-
-5. Migrate the database
-
-6. Create super user
+#### Some Settings
+1. Create Virtual Environment for Python
+2. Install django mysql
+3. Migrate the database
+4. Create super user
 
 ```
 (myprojectenv)Chi-An🀄️ toy_jp $python manage.py createsuperuser
@@ -62,30 +63,30 @@ Password (again):
 Superuser created successfully.
 ```
 
-7. Populate the database
+#### Populate the database
 A) switch to the right database 
-USE toy_jp;
+```USE toy_jp;```
 
 B) `CREATE TABLE`
 watch out for datatype
 
-C) `INSERT INTO orders (company_name, quantity) VALUE ("Starbucks", 100);`
+C) Add content
+`INSERT INTO orders (company_name, quantity) VALUE ("Starbucks", 100);`
 
 
-8. Use Model as a higher level api to access mysql database.
+#### Use Model to access mysql database.
 REF: https://docs.djangoproject.com/en/1.10/topics/db/queries/
-
+The `Order` model could be found in `orders/models.py`. It will be included in dashboard for future database access.
 
 <!-- Second Part About loading html files -->
 
 
-10. How to Load an html file
-REF: http://stackoverflow.com/questions/14400035/how-to-return-a-static-html-file-as-a-response-in-django
+#### How to Load an html file
+**REF**: http://stackoverflow.com/questions/14400035/how-to-return-a-static-html-file-as-a-response-in-django
 
-Even more helpful link from Django Girls
-https://tutorial.djangogirls.org/en/html/
+**REF**: https://tutorial.djangogirls.org/en/html/
 
-A) I generated another app called the dashboard, in the dashboard I put all of my related templates in `/dashboard/templates/dashboard`
+A) Generated another app called the dashboard, in the dashboard I put all of my related templates in `/dashboard/templates/dashboard`
 
 B) Set up views.py by adding
 ```
@@ -103,10 +104,8 @@ Things to note
 E.G. `{{key}}`
 
 
-11. How to include database variables into javascript.
+#### How to include database variables into javascript.
 By putting the curly brackets in the `<script></script>` in template, the variables
-
-
 
 
 
