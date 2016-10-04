@@ -83,9 +83,35 @@ REF: http://stackoverflow.com/questions/14400035/how-to-return-a-static-html-fil
 Even more helpful link from Django Girls
 https://tutorial.djangogirls.org/en/html/
 
+A) I generated another app called the dashboard, in the dashboard a put all of my related templates in /dashboard/templates/dashboard
+
+B) Set up views.py by adding
+```
+def dashboard(request):
+	# get data here
+	orders = Order.objects.filter(company_name="Apple")
+	t = orders[0].json_object()
+	return render(request, 'dashboard/dashboard.html', {'apple': t})
+```
+
+This function will be called and the specified html file will be rendered.
+Things to note
+1. setup the global url under toy_jp/urls.py
+2. variables could be passed into the template by the thrid variable in the `render` function. In the template, just use it by the key value and wrap them up with two curly brackets. 
+E.G. `{{key}}`
+
+
+
+
 
 
 # Future Readings:
 Outputting csv file with Django:
 https://docs.djangoproject.com/en/1.10/howto/outputting-csv/
+
+
+## Questions to find out
+1. Whether to make an api to request data into template, or to use api, or both...
+2. How to link static files including css and other js libraries.
+3.  
 
