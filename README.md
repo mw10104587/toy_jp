@@ -52,22 +52,24 @@ Query OK, 0 rows affected (0.01 sec)
 5. Migrate the database
 
 6. Create super user
+
+```
 (myprojectenv)Chi-An🀄️ toy_jp $python manage.py createsuperuser
 Username (leave blank to use 'wangchi-an'): 
 Email address: cw2897@columbia.edu    
 Password: 
 Password (again): 
 Superuser created successfully.
-
+```
 
 7. Populate the database
 A) switch to the right database 
 USE toy_jp;
 
-B) CREATE TABLE 
+B) `CREATE TABLE`
 watch out for datatype
 
-B) INSERT INTO orders (company_name, quantity) VALUE ("Starbucks", 100);
+C) `INSERT INTO orders (company_name, quantity) VALUE ("Starbucks", 100);`
 
 
 8. Use Model as a higher level api to access mysql database.
@@ -83,7 +85,7 @@ REF: http://stackoverflow.com/questions/14400035/how-to-return-a-static-html-fil
 Even more helpful link from Django Girls
 https://tutorial.djangogirls.org/en/html/
 
-A) I generated another app called the dashboard, in the dashboard a put all of my related templates in /dashboard/templates/dashboard
+A) I generated another app called the dashboard, in the dashboard I put all of my related templates in `/dashboard/templates/dashboard`
 
 B) Set up views.py by adding
 ```
@@ -99,6 +101,11 @@ Things to note
 1. setup the global url under toy_jp/urls.py
 2. variables could be passed into the template by the thrid variable in the `render` function. In the template, just use it by the key value and wrap them up with two curly brackets. 
 E.G. `{{key}}`
+
+
+11. How to include database variables into javascript.
+By putting the curly brackets in the `<script></script>` in template, the variables
+
 
 
 
