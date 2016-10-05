@@ -112,7 +112,7 @@ By putting the curly brackets in the `<script></script>` in template, the variab
 # Testing
 ## Checking Database Functionality
 After adding data, command line showing what's in the database `orders_order`, which means the `order` module under `orders` app.
-![After adding data, showing database in cmd line]('./screenshots/before-delete-cmd.png') 
+![After adding data, showing database in cmd line]('screenshots/before-delete-cmd.png') 
 ![After adding data, showing visualization result]('./screenshots/before-delete.png') 
 
 We try to remove data, and reloaded the page, and every worked like charm.
