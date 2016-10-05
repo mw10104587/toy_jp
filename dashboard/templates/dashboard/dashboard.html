@@ -6,7 +6,11 @@
 <body>
 <script src="https://d3js.org/d3.v4.js"></script>
 
-<h1>HHHHHH!!</h1>
+<h1>Test Dashboard Page!</h1>
+<div>
+	<p>These are your not so much stocks that haven't been solded yet. Q___Q </p>
+
+</div>
 <div id='svg-wrap'>
 	<svg>
 
@@ -19,11 +23,17 @@
 // d3.json()
 
 {% autoescape off %}
-var apple = {{apple}}
+var data = {{apple}}
 {% endautoescape %}
 
+// add index for each element
+for(var i = 0; i < data.length; i++){
+	data[i]['index'] = i;	
+}
+
+
+
 var svg = d3.select('#svg-wrap > svg');
-console.log(svg);
 
 svg.attr('width', 800)
 	.attr('height', 300);
@@ -31,11 +41,26 @@ svg.attr('width', 800)
 var g = svg.append('g')
 	.attr('class','bar-chart-group');
 
-g.append('rect')
-	.attr('width', apple.quantity/100)
-	.attr('height', 50)
-	.style('fill', '#eeeeee');
+var stocks = g.selectAll('g').data(data).enter()
+	.append('g');
 
+stocks.append('rect')
+	.attr('transform', function(d){
+		return 'translate(' + d.index * 60 + ',' + (100 - d.quantity/100) + ')'; 
+	})
+	.attr('width', 20)
+	.attr('height', function(d){
+		return d.quantity/100;
+	})
+	.style('fill', 'red');
+
+stocks.append('text')
+	.text(function(d){
+		return d.company_name;
+	})
+	.attr('transform', function(d){
+		return 'translate(' + d.index * 60 + ', ' + 110 + ')';
+	});
 
 </script>
 
