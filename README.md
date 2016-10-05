@@ -1,4 +1,5 @@
-# Launching our toy application
+# JP Morgan Project Prototype
+url: https://github.com/mw10104587/toy_jp
 
 #### Launching our toy jp project
 
@@ -13,9 +14,7 @@ python manage.py runserver 0.0.0.0:8000
 
 ## Process of building this toy project
 
-We have several biggest part of connecting different frameworks. We decide to use **Django**, **MySQL**
- and **d3.js** to build our application and show data and process to our users. Our main task is to link all of them together. Nothing was particularly hard, but it took us a while to understand the structure of Django and connecting it to MySQL server. 
-
+We have several frameworks that neede to be connected. We decide to use **Django**, **MySQL** and **d3.js** to build our application and show data and process to our users. Our main task is to link all of them together. Nothing was particularly hard, but it took us a while to understand the structure of Django and connecting it to MySQL server. MySQL Server also took us a while setting up. The following are the problems we encountered and we take down how we solved these problems.
 
 
 ## Database
@@ -105,8 +104,7 @@ E.G. `{{key}}`
 
 
 #### How to include database variables into javascript.
-By putting the curly brackets in the `<script></script>` in template, the variables
-
+By putting the curly brackets in the `<script></script>` in template, the variables will be rendered while the request was sent out by our Django server. While the browser execute the javascript in the html file, the data is already there. There might be concerns about this. In the future, if the data gets bigger, we want to provide asynchronous loading solution for this.
 
 
 # Testing
@@ -123,9 +121,10 @@ We try to remove data, and reloaded the page, and every worked like charm.
 
 
 ## Future Work
-It would be more convenient to use django-nvd3 to develop reusable templates.
-After we experienced it, we took it into consideration in next development.
++ Consider using django-nvd3 framework to develop reusable templates.
 **REF**:https://github.com/areski/django-nvd3
++ Include Bootstrap into our project
+
 
 #### Platform consistency
 Our teammates half are using mac book and half are using windows, I believe we also need to make sure the compatibility of Python version, mysql settings.
@@ -137,10 +136,9 @@ Outputting csv file with Django:
 https://docs.djangoproject.com/en/1.10/howto/outputting-csv/
 
 
-
-
 ## Questions to find out
 1. Whether to make an api to request data into template, or to use api, or both...
 2. How to link static files including css and other js libraries.
-3.  
+3. Whether to use `gulp` as project management software
+4. Whether to use CommonJS to control all of our js files
 
