@@ -112,12 +112,12 @@ By putting the curly brackets in the `<script></script>` in template, the variab
 # Testing
 ## Checking Database Functionality
 After adding data, command line showing what's in the database `orders_order`, which means the `order` module under `orders` app.
-![After adding data, showing database in cmd line]('screenshots/before-delete-cmd.png') 
-![After adding data, showing visualization result]('./screenshots/before-delete.png') 
+![After adding data, showing database in cmd line](screenshots/before-delete-cmd.png) 
+![After adding data, showing visualization result](./screenshots/before-delete.png) 
 
 We try to remove data, and reloaded the page, and every worked like charm.
-![Remove two rows from db, showing database in cmd line]('./screenshots/delete-cmd.png')
-![Remove two rows from db, showing updated visualization result]('./screenshots/delete.png')
+![Remove two rows from db, showing database in cmd line](./screenshots/delete-cmd.png)
+![Remove two rows from db, showing updated visualization result](./screenshots/delete.png)
 
 
 
@@ -126,6 +126,9 @@ We try to remove data, and reloaded the page, and every worked like charm.
 It would be more convenient to use django-nvd3 to develop reusable templates.
 After we experienced it, we took it into consideration in next development.
 **REF**:https://github.com/areski/django-nvd3
+
+#### Platform consistency
+Our teammates half are using mac book and half are using windows, I believe we also need to make sure the compatibility of Python version, mysql settings.
 
 
 
