@@ -34,16 +34,20 @@ password: password
 
 #### Create a database for this project
 A) Create a database
+```
 DATABASE NAME: toy_jp
 mysql> CREATE DATABASE toy_jp CHARACTER SET UTF8;
 Query OK, 1 row affected (0.00 sec)
+```
 
 B) Create a user and grant access to the database
+```
 mysql> CREATE USER mw10104587@localhost IDENTIFIED BY 'password';
 Query OK, 0 rows affected (0.01 sec)
 
 mysql> GRANT ALL PRIVILEGES ON toy_jp.* TO mw10104587@localhost;
 Query OK, 0 rows affected (0.01 sec)
+```
 
 **REF**: https://www.digitalocean.com/community/tutorials/how-to-use-mysql-or-mariadb-with-your-django-application-on-ubuntu-14-04
 
