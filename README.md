@@ -1,6 +1,81 @@
 # JP Morgan Project Prototype
 url: https://github.com/mw10104587/toy_jp
 
+
+## Current Development
+1. Build **Session** manager to communicate with **market** and **client** at the same time. This requires using websockets to communicate with both sides. According to [this link](https://blog.heroku.com/in_deep_with_django_channels_the_future_of_real_time_apps_in_django), the new [Channels](https://channels.readthedocs.io/en/stable/) might be a good solution. 
+
+Another potential Resources: [django-socket.io](http://blog.jupo.org/2011/08/13/real-time-web-apps-with-django-and-websockets/) 
+
+
+
+
+
+## Communication between server and client
+To clarify, the server here, is the server that serves the client file. Not the `server.py` file provided by the TA. We will refer to `server.py` file and its related function as `Market`.
+
+```
+
+// Note that the path doesn't matter for routing; any WebSocket
+// connection gets bumped over to WebSocket consumers
+socket = new WebSocket("ws://" + window.location.host + "/chat/");
+socket.onmessage = function(e) {
+    $("body > div").append(e.data + "\n");
+}
+socket.onopen = function() {
+    socket.send("hello world");
+}
+// Call onopen directly if socket is already open
+if (socket.readyState == WebSocket.OPEN) socket.onopen();
+```
+
+### Socket Data Format
+The data transferred from the server to client would include **three** types and you should use `message_type` to identify them.
+1. Quote Data
+```
+{
+	"message_type": "quote",
+	"quote": 137.72, 
+	"timestamp": "2016-09-26 02:14:57.809922"
+} 
+```
+
+2. Sold data
+```
+{
+	"message_type": "sold_message",
+	"remaining_quantity": 950, 
+	"sold_price": 137.72, 
+	"sold_quantity": 50, 
+	"pnl": 6886.0,
+	"timestamp": "2016-09-26 02:14:57.809922"
+}
+```
+
+3. Unfilled order(Sell attempt failed)
+```
+{
+	"message_type": "unfilled_order",
+	"remaining_quantity": 800,
+	"pnl": 1370,
+	"timestamp": "2016-09-26 02:14:57.809922"
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### Launching our toy jp project
 
 Type in the following command at the project root directory.

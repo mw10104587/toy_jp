@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'orders',
-    'dashboard'
+    'dashboard',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# setting for channels.
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "toy_jp.routing.channel_routing",
+    },
+}
+
+
